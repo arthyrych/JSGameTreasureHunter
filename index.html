@@ -13,9 +13,21 @@
 
     <script>
         
+
+        
+        let width = 400;
+        let height = 400;
+
+        let target = {
+            x : getRandomNumber(width),
+            y : getRandomNumber(height)
+        };
+
+
+        // get a random number for coordinates
         function getRandomNumber (size) {
             return Math.floor(Math.random() * size);
-        }
+        };
 
     </script>
 </body>
