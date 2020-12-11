@@ -13,8 +13,45 @@
 
     <script>
         
-        
 
+        // function to get a random number for coordinates x and y
+        function getRandomNumber (size) {
+            return Math.floor(Math.random() * size);
+        };
+
+
+        // the width and height of the map
+        let width = 400;
+        let height = 400;        
+
+
+        // getting a random position on the map
+        let target = {
+            x : getRandomNumber(width),
+            y : getRandomNumber(height)
+        };
+
+        console.log(target);
+
+
+        //click function
+        $('#map').click(function (event) {
+            clicks++;
+
+        });
+
+
+        // click counter
+        let clicks = 0;
+
+
+        // getting distance from click to the target
+        function getDistance (event, target) {
+            let diffX = event.offsetX - target.offsetX;
+            let diffY = event.offsetY - target.offsetY;
+            return Math.sqrt((diffX * diffX) + (diffY * diffY));
+        };
+        
 
         // distance hint
         function getDistanceHint (distance) {
@@ -36,43 +73,7 @@
         };
 
 
-        // getting distance from click to the target
-        function getDistance (event, target) {
-            let diffX = event.offsetX - target.offsetX;
-            let diffY = event.offsetY - target.offsetY;
-            return Math.sqrt((diffX * diffX) + (diffY * diffY));
-        };
-
-
-        // click counter
-        let clicks = 0;
-
-
-        //click function
-        $('#map').click(function (event) {
-            clicks++;
-
-        });
-
-
-        // the width and height of the map
-        let width = 400;
-        let height = 400;
-
-
-        // getting random position on the map
-        let target = {
-            x : getRandomNumber(width),
-            y : getRandomNumber(height)
-        };
-
-        console.log(target);
-
-
-        // get a random number for coordinates
-        function getRandomNumber (size) {
-            return Math.floor(Math.random() * size);
-        };
+        
 
     </script>
 </body>
