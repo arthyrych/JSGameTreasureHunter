@@ -13,13 +13,35 @@
 
     <script>
         
+        
+
+
+        // distance hint
+        function getDistanceHint (distance) {
+            if (distance < 10) {
+                return 'Burning!';
+            } else if (distance < 20) {
+                return 'Very hot';
+            } else if (distance < 40) {
+                return 'Hot';
+            } else if (distance < 80) {
+                return 'Warm';
+            } else if (distance < 160) {
+                return 'Cold';
+            } else if (distance < 320) {
+                return 'Very cold'
+            } else {
+                return 'Freezing!'
+            }
+        };
+
 
         // getting distance from click to the target
         function getDistance (event, target) {
             let diffX = event.offsetX - target.offsetX;
             let diffY = event.offsetY - target.offsetY;
             return Math.sqrt((diffX * diffX) + (diffY * diffY));
-        }
+        };
 
 
         // click counter
