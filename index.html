@@ -14,7 +14,24 @@
     <script>
         
 
-        
+        // getting distance from click to the target
+        function getDistance (event, target) {
+            let diffX = event.offsetX - target.offsetX;
+            let diffY = event.offsetY - target.offsetY;
+            return Math.sqrt((diffX * diffX) + (diffY * diffY));
+        }
+
+
+        // click counter
+        let clicks = 0;
+
+
+        //click function
+        $('#map').click(function (event) {
+            clicks++;
+
+        });
+
 
         // the width and height of the map
         let width = 400;
@@ -26,6 +43,8 @@
             x : getRandomNumber(width),
             y : getRandomNumber(height)
         };
+
+        console.log(target);
 
 
         // get a random number for coordinates
