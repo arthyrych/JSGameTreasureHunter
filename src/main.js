@@ -43,7 +43,7 @@ let height = 800;
 let clicks = 0;
 
 // remaining clicks
-let remainingClicks = 15;
+let remainingClicks = 20;
 
 
 // getting a random position on the map
@@ -75,7 +75,8 @@ $('#map').click(function (event) {
 
     // if a click is too close showing victory message
     if (distance < 8) {
-        alert('Treasure is found! You\'ve made ' + clicks + ' clicks!');
+        alert('Treasure is found! You\'ve made ' + clicks + ' clicks!\nReload the page to start a new game.');
+        $('#distanceAndClicks').fadeOut(50);
     } else if (remainingClicks <= 0) {
         alert('Game over! Reload the page to start a new game.');
         remainingClicks = 0;
