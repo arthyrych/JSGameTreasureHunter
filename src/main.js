@@ -1,3 +1,7 @@
+// hiding push
+$('.push').fadeOut(10);
+
+
 // getting a random number for coordinates x and y (from 0 to size-1)
 function getRandomNumber (size) {
     return Math.floor(Math.random() * size);
@@ -68,13 +72,14 @@ $('#map').click(function (event) {
     // converting distance to a hint
     let distanceHint = getDistanceHint(distance);
 
-    // changing #distance element to a new hint
+    // popup with remaining clicks and hint
     $('.push').text('Remaining clicks: ' + remainingClicks + '. Hint: ' + distanceHint).fadeIn(50).fadeOut(5000);
 
     // if a click is too close showing victory message
     if (distance < 10) {
         $('#rules').text('Treasure is found! You\'ve made ' + clicks + ' clicks! Reload the page to start a new game.');
         $('#map').fadeOut(50);
+    // game over if no more remaining clicks    
     } else if (remainingClicks <= 0) {
         $('#rules').text('Game over! Reload the page to start a new game.');
         remainingClicks = 0;
