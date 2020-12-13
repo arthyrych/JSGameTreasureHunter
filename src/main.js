@@ -26,6 +26,8 @@ function getDistanceHint (distance) {
         return 'Cold';
     } else if (distance < 320) {
         return 'Very cold'
+    } else if (distance < 640) {
+        return 'Very very cold!'
     } else {
         return 'Freezing!'
     }
@@ -33,8 +35,8 @@ function getDistanceHint (distance) {
 
 
 // the width and height of the map
-let width = 400;
-let height = 400;      
+let width = 800;
+let height = 800;      
 
 
 // click counter
