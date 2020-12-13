@@ -17,19 +17,19 @@ function getDistanceHint (distance) {
     if (distance < 10) {
         return 'Burning!';
     } else if (distance < 20) {
-        return 'Very hot';
+        return 'Very hot!';
     } else if (distance < 40) {
-        return 'Hot';
+        return 'Hot.';
     } else if (distance < 80) {
-        return 'Warm';
+        return 'Warm.';
     } else if (distance < 160) {
-        return 'Cold';
+        return 'Cold.';
     } else if (distance < 320) {
-        return 'Very cold'
+        return 'Very cold..'
     } else if (distance < 640) {
-        return 'Very very cold!'
+        return 'Very very cold...'
     } else {
-        return 'Freezing!'
+        return 'Freezing...'
     }
 };
 
@@ -41,6 +41,9 @@ let height = 800;
 
 // click counter
 let clicks = 0;
+
+// remaining clicks
+let remainingClicks = 15;
 
 
 // getting a random position on the map
@@ -55,7 +58,11 @@ console.log(target);
 //click function
 $('#map').click(function (event) {
 
+    // increasing click counter
     clicks++;
+
+    //decreasing remaing clicks
+    remainingClicks--;
 
     // distance from click to target
     let distance = getDistance(event, target);
@@ -64,10 +71,14 @@ $('#map').click(function (event) {
     let distanceHint = getDistanceHint(distance);
 
     // changing #distance element to a new hint
-    $('#distance').text(distanceHint);
+    $('#distanceAndClicks').text('Remaining clicks: ' + remainingClicks + '. Hint: ' + distanceHint);
 
     // if a click is too close showing victory message
     if (distance < 8) {
         alert('Treasure is found! You\'ve made ' + clicks + ' clicks!');
+    } else if (remainingClicks <= 0) {
+        alert('Game over! Reload the page to start a new game.');
+        remainingClicks = 0;
+        $('#distanceAndClicks').fadeOut(50);
     }
 });
