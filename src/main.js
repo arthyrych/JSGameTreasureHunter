@@ -69,17 +69,15 @@ $('#map').click(function (event) {
     let distanceHint = getDistanceHint(distance);
 
     // changing #distance element to a new hint
-    $('#distanceAndClicks').text('Remaining clicks: ' + remainingClicks + '. Hint: ' + distanceHint);
+    $('.push').text('Remaining clicks: ' + remainingClicks + '. Hint: ' + distanceHint).fadeIn(50).fadeOut(5000);
 
     // if a click is too close showing victory message
     if (distance < 10) {
         $('#rules').text('Treasure is found! You\'ve made ' + clicks + ' clicks! Reload the page to start a new game.');
         $('#map').fadeOut(50);
-        $('#distanceAndClicks').fadeOut(50);
     } else if (remainingClicks <= 0) {
         $('#rules').text('Game over! Reload the page to start a new game.');
         remainingClicks = 0;
         $('#map').fadeOut(50);
-        $('#distanceAndClicks').fadeOut(50);
     }
 });

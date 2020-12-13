@@ -7,9 +7,22 @@
 <body>
 <h1 id='firstHeader'>Treasure hunter!</h1>
 <h3 id='rules'>Rules: 1) Click on the map to find the treasure 2) Clicks are limited 3) Use hints to navigate</h3>
-<p id='distanceAndClicks'></p>
 <img id='map' width="800" height="800" src="../treasure_hunter/img/treasuremap.png">
 
+<div class="push"></div>
+
+<style> 
+    .push {
+        position: fixed;
+        bottom: 5px;
+        left: 10px;
+        padding: 14px;
+        border: 1px solid gray;
+        border-radius: 6px;
+        background: gray;
+        color: white;
+    }
+</style>
 
 <script src='https://code.jquery.com/jquery-2.1.0.js'></script>
 <script src='src/main.js'></script>
