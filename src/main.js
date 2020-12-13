@@ -1,7 +1,3 @@
-// hiding push
-$('.push').fadeOut(10);
-
-
 // getting a random number for coordinates x and y (from 0 to size-1)
 function getRandomNumber (size) {
     return Math.floor(Math.random() * size);
