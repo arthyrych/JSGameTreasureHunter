@@ -31,6 +31,14 @@ function getDistanceHint (distance) {
     }
 };
 
+function pushAfter () {
+    setTimeout(() => {
+        clicksForPush--;
+        if (clicksForPush <= 0) 
+            $('.push').fadeOut(100);
+    }, 1000);
+}
+
 
 // the width and height of the map
 let width = 800;
@@ -53,6 +61,9 @@ let target = {
 console.log(target);
 
 
+// click counter for push 
+let clicksForPush = 0;
+
 //click function
 $('#map').click(function (event) {
 
@@ -69,16 +80,16 @@ $('#map').click(function (event) {
     let distanceHint = getDistanceHint(distance);
 
     // popup with remaining clicks and hint
-    $('.push').text('Remaining clicks: ' + remainingClicks + '. Hint: ' + distanceHint).fadeIn(50).fadeOut(5000);
+    clicksForPush++;
+    $('.push').text('Remaining clicks: ' + remainingClicks + '. Hint: ' + distanceHint).fadeIn(100, pushAfter);
 
     // if a click is too close showing victory message
     if (distance < 10) {
         $('#rules').text('Treasure is found! You\'ve made ' + clicks + ' clicks! Reload the page to start a new game.');
-        $('#map').fadeOut(50);
+
     // game over if no more remaining clicks    
     } else if (remainingClicks <= 0) {
         $('#rules').text('Game over! Reload the page to start a new game.');
         remainingClicks = 0;
-        $('#map').fadeOut(50);
     }
 });
