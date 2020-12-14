@@ -31,13 +31,15 @@ function getDistanceHint (distance) {
     }
 };
 
+
+// push function
 function pushAfter () {
     setTimeout(() => {
         clicksForPush--;
         if (clicksForPush <= 0) 
             $('.push').fadeOut(100);
     }, 1000);
-}
+};
 
 
 // the width and height of the map
@@ -86,10 +88,12 @@ $('#map').click(function (event) {
     // if a click is too close showing victory message
     if (distance < 10) {
         $('#rules').text('Treasure is found! You\'ve made ' + clicks + ' clicks! Reload the page to start a new game.');
+        $('#map').hide();
 
     // game over if no more remaining clicks    
     } else if (remainingClicks <= 0) {
         $('#rules').text('Game over! Reload the page to start a new game.');
         remainingClicks = 0;
+        $('#map').hide();
     }
 });
