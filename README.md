@@ -1,1 +1,1 @@
-## Open the game here: https://arthyrych.github.io/treasure_hunter/
+# Open the game here: https://arthyrych.github.io/treasure_hunter/
