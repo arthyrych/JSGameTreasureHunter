@@ -60,6 +60,8 @@ let target = {
     y : getRandomNumber(height)
 };
 
+
+// showing coordinates (x and y) in console
 console.log(target);
 
 
